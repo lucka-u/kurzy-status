@@ -1,140 +1,133 @@
 <!doctype html>
 <html lang="cs">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kurzy Lucka</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kurzy Lucka</title>
 
-  <style>
-    :root {
-      --text: #1f2328;
-      --muted: #667085;
-      --accent: #6b4f3b;
+<style>
+:root {
+  --text: #1f2328;
+  --muted: #667085;
+  --accent: #6b4f3b;
+  --bg: #F3F1EB;
+  --card: #FFFFFF;
+  --card-border: #545454;
+  --badge-bg: #F9F7F7;
+  --border-soft: #e6e7ea;
+}
 
-      --bg: #F3F1EB;
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
 
-      --card: #FFFFFF;
-      --card-border: #545454;
+.wrap {
+  max-width: 920px;
+  margin: 64px auto;
+  padding: 0 20px;
+}
 
-      --badge-bg: #F9F7F7;
-      --border-soft: #e6e7ea;
-    }
+h1 {
+  margin: 0 0 10px;
+  font-size: 44px;
+  letter-spacing: .02em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-    }
+.lead {
+  margin: 0 0 28px;
+  color: var(--muted);
+  font-size: 18px;
+}
 
-    .wrap {
-      max-width: 920px;
-      margin: 64px auto;
-      padding: 0 20px;
-    }
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
 
-    h1 {
-      margin: 0 0 10px;
-      font-size: 44px;
-      line-height: 1.1;
-      letter-spacing: .02em;
-      color: var(--accent);
-      text-transform: uppercase;
-    }
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  padding: 16px;
+}
 
-    .lead {
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 18px;
-      max-width: 70ch;
-    }
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
 
-    .grid {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    }
+.course {
+  font-weight: 700;
+  font-size: 18px;
+}
 
-    .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 14px;
-      padding: 16px 16px 14px;
-    }
+.badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: var(--badge-bg);
+  color: var(--muted);
+  white-space: nowrap;
+}
 
-    .row {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 6px;
-    }
+.meta {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 4px;
+}
 
-    .course {
-      font-weight: 700;
-      font-size: 18px;
-    }
+.meta strong {
+  color: var(--text);
+}
 
-    .badge {
-      font-size: 12px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      background: var(--badge-bg);
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .meta {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 4px;
-    }
-
-    .meta strong {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    footer {
-      margin-top: 26px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-  </style>
+footer {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 13px;
+}
+</style>
 </head>
 
 <body>
-  <main class="wrap">
-    <h1>Kurzy Lucka</h1>
-    <p class="lead">Co kde děláme</p>
+<main class="wrap">
+<h1>Kurzy Lucka</h1>
+<p class="lead">Co kde děláme</p>
 
-    <section class="grid">
-      <article class="card">
-        <div class="row">
-          <div class="course">Úterý</div>
-          <div class="badge">naposledy: 2026-02-17</div>
-        </div>
-        <div class="meta"><strong>Vějíř:</strong> celá sestava (od 10. 3. dva vějíře)</div>
+<section class="grid">
+<article class="card">
+<div class="row">
+<div class="course">Úterý</div>
+<div class="badge">poslední trénink: 17. 2. 2026</div>
+</div>
+<div class="meta"><strong>Vějíř:</strong> celá sestava (od 10. 3. dva vějíře)</div>
 <div class="meta"><strong>19:00:</strong> Celá sestava 72 forem</div>
 <div class="meta"><strong>20:00:</strong> Tlačení oběma rukama</div>
-      </article>
+</article>
 
-      <article class="card">
-        <div class="row">
-          <div class="course">Čtvrtek</div>
-          <div class="badge">naposledy: 2026-02-19</div>
-        </div>
-        <div class="meta"><strong>17:00:</strong> Tlačení oběma rukama</div>
+<article class="card">
+<div class="row">
+<div class="course">Čtvrtek</div>
+<div class="badge">poslední trénink: 19. 2. 2026</div>
+</div>
+<div class="meta"><strong>17:00:</strong> Tlačení oběma rukama</div>
 <div class="meta"><strong>19:00:</strong> Celá sestava 72 forem</div>
 <div class="meta"><strong>20:00:</strong> 5 forem (procvičování)</div>
-      </article>
-    </section>
+</article>
+</section>
 
-    <footer>
-      Aktualizováno: 27. 2. 2026 15:30:00<br>
-      Zdroj: 2026-W08.md
-    </footer>
-  </main>
+<footer>
+Aktualizováno: 27. 2. 2026 20:47:32<br>
+Zdroj: 2026-W09.md
+</footer>
+
+</main>
 </body>
 </html>
