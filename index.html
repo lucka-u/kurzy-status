@@ -10,9 +10,14 @@
       --text: #1f2328;
       --muted: #667085;
       --accent: #6b4f3b;
+
       --bg: #F3F1EB;
-      --card: #f7f7f8;
-      --border: #e6e7ea;
+
+      --card: #FFFFFF;
+      --card-border: #545454;
+
+      --badge-bg: #F9F7F7;
+      --border-soft: #e6e7ea;
     }
 
     body {
@@ -52,7 +57,7 @@
 
     .card {
       background: var(--card);
-      border: 1px solid var(--border);
+      border: 1px solid var(--card-border);
       border-radius: 14px;
       padding: 16px 16px 14px;
     }
@@ -74,8 +79,8 @@
       font-size: 12px;
       padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: #fff;
+      border: 1px solid var(--border-soft);
+      background: var(--badge-bg);
       color: var(--muted);
       white-space: nowrap;
     }
@@ -102,58 +107,32 @@
 <body>
   <main class="wrap">
     <h1>Kurzy Lucka</h1>
-    <p class="lead">Co kde děláme (test push)</p>
+    <p class="lead">Co kde děláme</p>
 
     <section class="grid">
-
       <article class="card">
         <div class="row">
           <div class="course">Úterý</div>
-          <div class="badge">naposledy: 2026-02-26</div>
+          <div class="badge">naposledy: 2026-02-17</div>
         </div>
-
-        <div class="meta">
-          <strong>Vějíř:</strong>
-          celá sestava (od 10. 3. dva vějíře)
-        </div>
-
-        <div class="meta">
-          <strong>19:00:</strong>
-          Celá sestava 72 forem
-        </div>
-
-        <div class="meta">
-          <strong>20:00:</strong>
-          Tlačení oběma rukama
-        </div>
+        <div class="meta"><strong>Vějíř:</strong> celá sestava (od 10. 3. dva vějíře)</div>
+<div class="meta"><strong>19:00:</strong> Celá sestava 72 forem</div>
+<div class="meta"><strong>20:00:</strong> Tlačení oběma rukama</div>
       </article>
 
       <article class="card">
         <div class="row">
           <div class="course">Čtvrtek</div>
-          <div class="badge">naposledy: 2026-02-25</div>
+          <div class="badge">naposledy: 2026-02-19</div>
         </div>
-
-        <div class="meta">
-          <strong>17:00:</strong>
-          Tlačení oběma rukama
-        </div>
-
-        <div class="meta">
-          <strong>19:00:</strong>
-          Celá sestava 72 forem
-        </div>
-
-        <div class="meta">
-          <strong>20:00:</strong>
-          Procvičování 5 forem
-        </div>
+        <div class="meta"><strong>17:00:</strong> Tlačení oběma rukama</div>
+<div class="meta"><strong>19:00:</strong> Celá sestava 72 forem</div>
+<div class="meta"><strong>20:00:</strong> Procvičování 5 forem</div>
       </article>
-
     </section>
 
     <footer>
-      Aktualizováno: 27. 2. 2026 11:10
+      Aktualizováno: 27. 2. 2026 14:59:12
     </footer>
   </main>
 </body>
