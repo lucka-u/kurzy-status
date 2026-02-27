@@ -1,6 +1,4 @@
 // scripts/generate.js
-// Generuje index.html pro GitHub Pages z nejnovější weekly note,
-// která má ve frontmatteru (Properties) is_current: true.
 
 const fs = require("fs");
 const path = require("path");
@@ -8,7 +6,7 @@ const path = require("path");
 const WEEKLY_DIR = String.raw`C:\98_Obsidian\PKB\PKB\10_Calendar\Weekly notes`;
 const OUTPUT_HTML = path.join(__dirname, "..", "index.html");
 
-// ---------- YAML / frontmatter helpers ----------
+// ---------- Frontmatter helpers ----------
 
 function getFrontmatter(md) {
   const m = md.match(/^---\s*[\r\n]+([\s\S]*?)[\r\n]+---\s*[\r\n]*/);
@@ -61,14 +59,10 @@ function formatDateCz(isoDate) {
   const d = new Date(isoDate);
   if (isNaN(d)) return isoDate;
 
-  const day = d.getDate();
-  const month = d.getMonth() + 1;
-  const year = d.getFullYear();
-
-  return `${day}. ${month}. ${year}`;
+  return `${d.getDate()}. ${d.getMonth() + 1}. ${d.getFullYear()}`;
 }
 
-// ---------- Find current weekly note ----------
+// ---------- Weekly note selection ----------
 
 function listWeeklyNotes(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -81,13 +75,13 @@ function readFrontmatterMap(filePath) {
   const md = fs.readFileSync(filePath, "utf8");
   const fmText = getFrontmatter(md);
   const fm = parseFrontmatterMap(fmText);
-  return { md, fm };
+  return { fm };
 }
 
 function pickCurrentWeeklyNote(dir) {
   const files = listWeeklyNotes(dir);
-
   const candidates = [];
+
   for (const fp of files) {
     try {
       const { fm } = readFrontmatterMap(fp);
@@ -108,17 +102,17 @@ function pickCurrentWeeklyNote(dir) {
 
 function renderMeta(items) {
   return items
-    .map(({ label, text }) => {
-      return `<div class="meta"><strong>${escapeHtml(label)}</strong> ${escapeHtml(text || "—")}</div>`;
-    })
+    .map(({ label, text }) =>
+      `<div class="meta"><strong>${escapeHtml(label)}</strong> ${escapeHtml(text || "—")}</div>`
+    )
     .join("\n");
 }
 
-function renderHtml({ lastTue, lastThu, status, sourceName }) {
+function renderHtml({ lastTue, lastThu, status }) {
   const updated = nowCz();
 
   const tueItems = [
-    { label: "Vějíř:", text: "celá sestava (od 10. 3. dva vějíře)" },
+    { label: "Vějíř:", text: "Celá sestava (od 10. 3. dva vějíře)" },
     { label: "19:00:", text: status.status_UtCt19 },
     { label: "20:00:", text: status.status_Ut20 },
   ];
@@ -138,92 +132,55 @@ function renderHtml({ lastTue, lastThu, status, sourceName }) {
 
 <style>
 :root {
-  --text: #1f2328;
-  --muted: #667085;
-  --accent: #6b4f3b;
-  --bg: #F3F1EB;
-  --card: #FFFFFF;
-  --card-border: #545454;
-  --badge-bg: #F9F7F7;
-  --border-soft: #e6e7ea;
+  --text:#1f2328;
+  --muted:#667085;
+  --accent:#6b4f3b;
+  --bg:#F3F1EB;
+  --card:#FFFFFF;
+  --card-border:#545454;
+  --badge-bg:#F9F7F7;
+  --border-soft:#e6e7ea;
 }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-}
+body { margin:0; background:var(--bg); color:var(--text);
+  font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; }
 
-.wrap {
-  max-width: 920px;
-  margin: 64px auto;
-  padding: 0 20px;
-}
+.wrap { max-width:920px; margin:64px auto; padding:0 20px; }
 
-h1 {
-  margin: 0 0 10px;
-  font-size: 44px;
-  letter-spacing: .02em;
-  color: var(--accent);
-  text-transform: uppercase;
-}
+h1 { margin:0 0 10px; font-size:44px; letter-spacing:.02em;
+  color:var(--accent); text-transform:uppercase; }
 
-.lead {
-  margin: 0 0 28px;
-  color: var(--muted);
-  font-size: 18px;
-}
+.lead { margin:0 0 28px; color:var(--muted); font-size:18px; }
 
-.grid {
-  display: grid;
-  gap: 14px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
+.grid { display:grid; gap:14px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
 
 .card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  padding: 16px;
+  background:var(--card);
+  border:1px solid var(--card-border);
+  border-radius:14px;
+  padding:16px;
 }
 
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 6px;
-}
+.row { display:flex; justify-content:space-between; margin-bottom:6px; }
 
-.course {
-  font-weight: 700;
-  font-size: 18px;
-}
+.course { font-weight:700; font-size:18px; }
 
 .badge {
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--border-soft);
-  background: var(--badge-bg);
-  color: var(--muted);
-  white-space: nowrap;
+  font-size:12px;
+  padding:4px 10px;
+  border-radius:999px;
+  border:1px solid var(--border-soft);
+  background:var(--badge-bg);
+  color:var(--muted);
+  white-space:nowrap;
 }
 
-.meta {
-  color: var(--muted);
-  font-size: 14px;
-  margin-bottom: 4px;
-}
+.meta { color:var(--muted); font-size:14px; margin-bottom:4px; }
 
-.meta strong {
-  color: var(--text);
-}
+.meta strong { color:var(--text); }
 
-footer {
-  margin-top: 26px;
-  color: var(--muted);
-  font-size: 13px;
-}
+footer { margin-top:26px; color:var(--muted); font-size:13px; }
 </style>
 </head>
 
@@ -233,6 +190,7 @@ footer {
 <p class="lead">Co kde děláme</p>
 
 <section class="grid">
+
 <article class="card">
 <div class="row">
 <div class="course">Úterý</div>
@@ -248,11 +206,11 @@ ${renderMeta(tueItems)}
 </div>
 ${renderMeta(thuItems)}
 </article>
+
 </section>
 
 <footer>
-Aktualizováno: ${escapeHtml(updated)}<br>
-// Zdroj: ${escapeHtml(sourceName)}
+Aktualizováno: ${escapeHtml(updated)}
 </footer>
 
 </main>
@@ -265,7 +223,7 @@ Aktualizováno: ${escapeHtml(updated)}<br>
 function main() {
   const current = pickCurrentWeeklyNote(WEEKLY_DIR);
   if (!current) {
-    console.error("ERROR: Nenašel jsem žádnou weekly note s is_current: true.");
+    console.error("Nenalezena weekly note s is_current: true");
     process.exit(1);
   }
 
@@ -279,14 +237,11 @@ function main() {
       status_Ut20: fm.status_Ut20,
       status_ct17: fm.status_ct17,
       status_ct20: fm.status_ct20,
-    },
-    sourceName: path.basename(current),
+    }
   });
 
   fs.writeFileSync(OUTPUT_HTML, html, "utf8");
-
-  console.log("OK: current weekly note =", current);
-  console.log("OK: vygenerováno =", OUTPUT_HTML);
+  console.log("OK: vygenerováno", OUTPUT_HTML);
 }
 
 main();
