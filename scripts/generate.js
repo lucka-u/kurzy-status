@@ -252,7 +252,7 @@ ${renderMeta(thuItems)}
 
 <footer>
 Aktualizováno: ${escapeHtml(updated)}<br>
-Zdroj: ${escapeHtml(sourceName)}
+// Zdroj: ${escapeHtml(sourceName)}
 </footer>
 
 </main>
