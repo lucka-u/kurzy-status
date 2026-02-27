@@ -110,9 +110,8 @@ function renderMeta(items) {
     .join("\n");
 }
 
-function renderHtml({ lastTue, lastThu, status }) {
+function renderHtml({ lastTue, lastThu, status, sourceName }) {
   const updated = nowCz();
-
   const tueItems = [
     { label: "Vějíř:", text: "celá sestava (od 10. 3. dva vějíře)" },
     { label: "19:00:", text: status.status_UtCt19 },
@@ -255,7 +254,8 @@ function renderHtml({ lastTue, lastThu, status }) {
     </section>
 
     <footer>
-      Aktualizováno: ${escapeHtml(updated)}
+      Aktualizováno: ${escapeHtml(updated)}<br>
+      Zdroj: ${escapeHtml(sourceName)}
     </footer>
   </main>
 </body>
@@ -284,7 +284,8 @@ function main() {
     status_ct20: fm.status_ct20,
   };
 
-  const html = renderHtml({ lastTue, lastThu, status });
+const sourceName = path.basename(current);
+const html = renderHtml({ lastTue, lastThu, status, sourceName });
   fs.writeFileSync(OUTPUT_HTML, html, "utf8");
 
   console.log("OK: current weekly note =", current);
