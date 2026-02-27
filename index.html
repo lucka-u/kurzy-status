@@ -1,4 +1,160 @@
 <!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kurzy Lucka</title>
 
-<html lang="cs"><head> <meta charset="utf-8"> <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Status kurzů</title> <style> :root{ --text:#1f2328; --muted:#667085; --accent:#6b4f3b; /* střízlivá hnědá podobná tvému webu */ --bg:#ffffff; --card:#f7f7f8; --border:#e6e7ea; } body{ margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; } .wrap{ max-width: 920px; margin: 64px auto; padding: 0 20px; } h1{ margin:0 0 10px; font-size: 44px; line-height: 1.1; letter-spacing: .02em; color: var(--accent); text-transform: uppercase; } .lead{ margin:0 0 28px; color: var(--muted); font-size: 18px; max-width: 70ch; } .grid{ display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); } .card{ background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 16px 16px 14px; } .row{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; margin-bottom:6px; } .course{ font-weight: 700; font-size: 18px; } .badge{ font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); background:#fff; color: var(--muted); white-space:nowrap; } .meta{ color: var(--muted); font-size: 14px; } .meta strong{ color: var(--text); font-weight:600; } footer{ margin-top: 26px; color: var(--muted); font-size: 13px; } </style> </head> <body> <main class="wrap"> <h1>Kurzy Lucka</h1> <p class="lead">Co kde děláme</p> <section class="grid"> <article class="card"> <div class="row"> <div class="course">Úterý</div> <div class="badge">naposledy: 2026-02-26</div> </div> <div class="meta"><strong>Vějíř:</strong> celá sestava (od 10. 3. dva vějíře)</div> <div class="meta"><strong>19:00: </strong>Celá sestava 72 forem</div> <div class="meta"><strong>20:00: </strong>Tlačení oběma rukama</div> </article> <article class="card"> <div class="row"> <div class="course">Čtvrtek</div> <div class="badge">naposledy: 2026-02-25</div> </div> <div class="meta"><strong>17:00:</strong>Tlačení oběma rukama</div> <div class="meta"><strong>19:00: </strong>Celá sestava 72 forem</div> <div class="meta"><strong>20:00: </strong>Procvičování 5 forem</div> </article> </section> <footer> Aktualizováno: <span id="ts">27. 2. 2026 11:10:26</span> </footer> </main> <script> document.getElementById("ts").textContent = new Date().toLocaleString("cs-CZ"); </script> </body></html>
+  <style>
+    :root {
+      --text: #1f2328;
+      --muted: #667085;
+      --accent: #6b4f3b;
+      --bg: #ffffff;
+      --card: #f7f7f8;
+      --border: #e6e7ea;
+    }
 
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .wrap {
+      max-width: 920px;
+      margin: 64px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 44px;
+      line-height: 1.1;
+      letter-spacing: .02em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .lead {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 70ch;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 16px 14px;
+    }
+
+    .row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .course {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .meta strong {
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+    <h1>Kurzy Lucka</h1>
+    <p class="lead">Co kde děláme (test push)</p>
+
+    <section class="grid">
+
+      <article class="card">
+        <div class="row">
+          <div class="course">Úterý</div>
+          <div class="badge">naposledy: 2026-02-26</div>
+        </div>
+
+        <div class="meta">
+          <strong>Vějíř:</strong>
+          celá sestava (od 10. 3. dva vějíře)
+        </div>
+
+        <div class="meta">
+          <strong>19:00:</strong>
+          Celá sestava 72 forem
+        </div>
+
+        <div class="meta">
+          <strong>20:00:</strong>
+          Tlačení oběma rukama
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="row">
+          <div class="course">Čtvrtek</div>
+          <div class="badge">naposledy: 2026-02-25</div>
+        </div>
+
+        <div class="meta">
+          <strong>17:00:</strong>
+          Tlačení oběma rukama
+        </div>
+
+        <div class="meta">
+          <strong>19:00:</strong>
+          Celá sestava 72 forem
+        </div>
+
+        <div class="meta">
+          <strong>20:00:</strong>
+          Procvičování 5 forem
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      Aktualizováno: 27. 2. 2026 11:10
+    </footer>
+  </main>
+</body>
+</html>
