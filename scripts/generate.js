@@ -129,7 +129,7 @@ function renderHtml({ lastTue, lastThu, status }) {
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kurzy Lucka</title>
-
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
 :root {
   --text:#1f2328;
